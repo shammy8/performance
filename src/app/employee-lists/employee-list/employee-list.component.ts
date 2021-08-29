@@ -10,6 +10,7 @@ import { Employee } from '../employee.service';
       <mat-label>Name</mat-label>
       <input matInput [(ngModel)]="selectedName" />
     </mat-form-field>
+
     <mat-form-field>
       <mat-label>Value</mat-label>
       <mat-select [(value)]="selectedValue">
@@ -18,6 +19,7 @@ import { Employee } from '../employee.service';
         }}</mat-option>
       </mat-select>
     </mat-form-field>
+
     <button
       mat-flat-button
       color="primary"
@@ -29,7 +31,10 @@ import { Employee } from '../employee.service';
     >
       Add
     </button>
-    <pre>{{ employees | json }}</pre>
+    <div *ngFor="let employee of employees">
+      {{ employee.name }}. {{ employee.value }} =>
+      {{ calculate(employee.value) }}
+    </div>
   `,
   styles: [
     `
@@ -57,4 +62,15 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit(): void {
     console.log('hi');
   }
+
+  calculate(value: number) {
+    console.log('calculating for value:', value);
+    return fibonacci(value);
+  }
+}
+
+function fibonacci(value: number): number {
+  if (value <= 1) return 1;
+  if (value === 2) return 1;
+  return fibonacci(value - 1) + fibonacci(value - 2);
 }

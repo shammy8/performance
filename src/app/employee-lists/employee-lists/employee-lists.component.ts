@@ -6,8 +6,19 @@ import { Employee, EmployeeService } from '../employee.service';
 @Component({
   selector: 'app-employee-lists',
   template: `
-    <app-employee-list [employees]="dramsEmployees"></app-employee-list>
-    <app-employee-list [employees]="trapezeEmployees"></app-employee-list>
+    <app-employee-list
+      listName="Drams"
+      [employees]="dramsEmployees"
+      (addEmployee)="employeeService.addDramsEmployee($event)"
+    ></app-employee-list>
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <app-employee-list
+      listName="Trapeze"
+      [employees]="trapezeEmployees"
+      (addEmployee)="employeeService.addTrapezeEmployee($event)"
+    ></app-employee-list>
   `,
   styles: [
     `
@@ -24,7 +35,7 @@ export class EmployeeListsComponent implements OnInit, OnDestroy {
 
   destroy$ = new Subject<void>();
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(public employeeService: EmployeeService) {}
 
   ngOnInit(): void {
     this.employeeService.dramsEmployees$

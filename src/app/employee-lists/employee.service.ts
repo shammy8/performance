@@ -34,12 +34,14 @@ export class EmployeeService {
   constructor() {}
 
   addDramsEmployee(employee: Employee) {
-    this.dramsEmployees = [...this.dramsEmployees, employee];
+    employee.id = this.dramsEmployees.length;
+    this.dramsEmployees = [employee, ...this.dramsEmployees];
     this.dramsEmployees$.next(this.dramsEmployees);
   }
 
   addTrapezeEmployee(employee: Employee) {
-    this.trapezeEmployees = [...this.trapezeEmployees, employee];
+    employee.id = this.trapezeEmployees.length;
+    this.trapezeEmployees = [employee, ...this.trapezeEmployees];
     this.trapezeEmployees$.next(this.trapezeEmployees);
   }
 }

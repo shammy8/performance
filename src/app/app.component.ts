@@ -11,9 +11,10 @@ import { Component } from '@angular/core';
       <!-- <nav><a>Employee</a></nav> -->
     </mat-toolbar>
     <mat-menu #menu="matMenu">
-      <a mat-menu-item>Employee Lists</a>
+      <a mat-menu-item routerLink="/employee-lists">Employee Lists</a>
       <a mat-menu-item>Other</a>
     </mat-menu>
+    <router-outlet></router-outlet>
   `,
   styles: [],
 })

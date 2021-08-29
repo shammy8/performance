@@ -1,8 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Employee, EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employee-lists',
-  template: ` <p>employee-lists works!</p> `,
+  template: `
+    <pre>{{ dramsEmployees | json }}</pre>
+    <pre>{{ trapezeEmployees | json }}</pre>
+  `,
   styles: [
     `
       :host {
@@ -11,10 +17,29 @@ import { Component, OnInit } from '@angular/core';
     `,
   ],
 })
-export class EmployeeListsComponent implements OnInit {
-  constructor() {}
+export class EmployeeListsComponent implements OnInit, OnDestroy {
+  dramsEmployees: Employee[] = [];
+  trapezeEmployees: Employee[] = [];
+
+  destroy$ = new Subject<void>();
+
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
-    console.log('hi');
+    this.employeeService.dramsEmployees$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((employees) => {
+        this.dramsEmployees = employees;
+      });
+
+    this.employeeService.trapezeEmployees$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((employees) => {
+        this.trapezeEmployees = employees;
+      });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
   }
 }

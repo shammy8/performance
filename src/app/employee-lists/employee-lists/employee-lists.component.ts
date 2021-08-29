@@ -6,13 +6,14 @@ import { Employee, EmployeeService } from '../employee.service';
 @Component({
   selector: 'app-employee-lists',
   template: `
-    <pre>{{ dramsEmployees | json }}</pre>
-    <pre>{{ trapezeEmployees | json }}</pre>
+    <app-employee-list [employees]="dramsEmployees"></app-employee-list>
+    <app-employee-list [employees]="trapezeEmployees"></app-employee-list>
   `,
   styles: [
     `
       :host {
-        display: block;
+        display: flex;
+        justify-content: space-around;
       }
     `,
   ],

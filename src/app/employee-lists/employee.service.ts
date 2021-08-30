@@ -65,7 +65,7 @@ export class EmployeeService {
   private dramsEmployeesBS$ = new BehaviorSubject<Employee[]>(
     this.dramsEmployees
   );
-  dramsEmployees$ = this.dramsEmployeesBS$.asObservable().pipe(delay(1000));
+  dramsEmployees$ = this.dramsEmployeesBS$.asObservable().pipe(delay(500));
 
   trapezeEmployees: Employee[] = [
     { id: 0, name: 'Kareem', value: 29 },
@@ -126,7 +126,7 @@ export class EmployeeService {
   private trapezeEmployeesBS$ = new BehaviorSubject<Employee[]>(
     this.trapezeEmployees
   );
-  trapezeEmployees$ = this.trapezeEmployeesBS$.asObservable().pipe(delay(2000));
+  trapezeEmployees$ = this.trapezeEmployeesBS$.asObservable().pipe(delay(1000));
 
   constructor() {}
 

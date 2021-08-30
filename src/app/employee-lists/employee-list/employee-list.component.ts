@@ -33,14 +33,14 @@ import { Employee } from '../employee.service';
       (click)="
         addEmployee.emit({ id: -1, name: selectedName, value: selectedValue });
         selectedName = '';
-        selectedValue = 15
+        selectedValue = 20
       "
     >
       Add
     </button>
 
     <div *ngFor="let employee of employees" class="employee-list">
-      <div>{{ employee.name }}.</div>
+      <div [appTooltip]="employee.id">{{ employee.name }}.</div>
       <div>{{ employee.value }}</div>
       <div>=></div>
       <div>

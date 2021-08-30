@@ -20,8 +20,10 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "memo-decorator": "^2.0.1",
     "ngx-hover-preload": "0.0.3",
     "rxjs": "~6.6.0",
+    "tippy.js": "^6.3.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

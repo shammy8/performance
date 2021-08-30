@@ -10,11 +10,16 @@ import { MatDividerModule } from '@angular/material/divider';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { FormsModule } from '@angular/forms';
 import { HoverPreloadModule } from 'ngx-hover-preload';
+import { TooltipDirective } from '../tooltip.directive';
 
 const routes: Routes = [{ path: '', component: EmployeeListsComponent }];
 
 @NgModule({
-  declarations: [EmployeeListsComponent, EmployeeListComponent],
+  declarations: [
+    EmployeeListsComponent,
+    EmployeeListComponent,
+    TooltipDirective,
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

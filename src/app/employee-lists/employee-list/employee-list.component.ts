@@ -38,6 +38,7 @@ import { Employee } from '../employee.service';
     >
       Add
     </button>
+
     <div *ngFor="let employee of employees">
       {{ employee.name }}. {{ employee.value }} =>
       {{ calculate(employee.value, employee.name) }}
@@ -61,7 +62,7 @@ export class EmployeeListComponent implements OnInit {
   selectedName = '';
 
   @Input() listName = '';
-  @Input() employees: Employee[] = [];
+  @Input() employees: Employee[] | null = [];
   @Output() addEmployee = new EventEmitter<Employee>();
   @Output() deleteEmployee = new EventEmitter();
 

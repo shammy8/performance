@@ -25,6 +25,15 @@ export class EmployeeService {
     { id: 15, name: 'Niall', value: 24 },
     { id: 16, name: 'Christina', value: 20 },
     { id: 17, name: 'Jessica', value: 29 },
+    { id: 18, name: 'Allan', value: 25 },
+    { id: 19, name: 'William', value: 29 },
+    { id: 20, name: 'Andrew', value: 27 },
+    { id: 21, name: 'Douglas', value: 29 },
+    { id: 22, name: 'Brendan', value: 22 },
+    { id: 23, name: 'Pat', value: 25 },
+    { id: 24, name: 'Niall', value: 24 },
+    { id: 25, name: 'Christina', value: 20 },
+    { id: 26, name: 'Jessica', value: 29 },
   ];
   private dramsEmployeesBS$ = new BehaviorSubject<Employee[]>(
     this.dramsEmployees
@@ -50,6 +59,15 @@ export class EmployeeService {
     { id: 15, name: 'Tim', value: 23 },
     { id: 16, name: 'Mark', value: 28 },
     { id: 17, name: 'John', value: 25 },
+    { id: 18, name: 'Kareem', value: 29 },
+    { id: 19, name: 'Neil', value: 22 },
+    { id: 20, name: 'Chris', value: 20 },
+    { id: 21, name: 'James', value: 27 },
+    { id: 22, name: 'Paul', value: 27 },
+    { id: 23, name: 'Peter', value: 22 },
+    { id: 24, name: 'Tim', value: 23 },
+    { id: 25, name: 'Mark', value: 28 },
+    { id: 26, name: 'John', value: 25 },
   ];
   private trapezeEmployeesBS$ = new BehaviorSubject<Employee[]>(
     this.trapezeEmployees

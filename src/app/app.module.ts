@@ -23,6 +23,10 @@ const routes: Routes = [
         (m) => m.EmployeeListsModule
       ),
   },
+  {
+    path: 'test',
+    loadChildren: () => import('./test/test.module').then((m) => m.TestModule),
+  },
 ];
 
 @NgModule({
@@ -30,7 +34,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { preloadingStrategy: NoPreloading }),
+    RouterModule.forRoot(routes, { preloadingStrategy: HoverPreloadStrategy }),
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,

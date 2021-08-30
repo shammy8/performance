@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
     </mat-toolbar>
     <mat-menu #menu="matMenu">
       <a mat-menu-item routerLink="/employee-lists">Employee Lists</a>
-      <a mat-menu-item>Other</a>
+      <a mat-menu-item routerLink="/test">Test</a>
     </mat-menu>
     <router-outlet></router-outlet>
   `,

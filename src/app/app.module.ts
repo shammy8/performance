@@ -34,7 +34,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { preloadingStrategy: HoverPreloadStrategy }),
+    RouterModule.forRoot(routes, { preloadingStrategy: NoPreloading }),
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,

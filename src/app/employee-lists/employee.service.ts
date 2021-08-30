@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,10 @@ export class EmployeeService {
     { id: 16, name: 'Christina', value: 20 },
     { id: 17, name: 'Jessica', value: 29 },
   ];
-  dramsEmployees$ = new BehaviorSubject<any>(this.dramsEmployees);
+  private dramsEmployeesBS$ = new BehaviorSubject<Employee[]>(
+    this.dramsEmployees
+  );
+  dramsEmployees$ = this.dramsEmployeesBS$.asObservable().pipe(delay(1000));
 
   trapezeEmployees: Employee[] = [
     { id: 0, name: 'Kareem', value: 29 },
@@ -47,20 +51,23 @@ export class EmployeeService {
     { id: 16, name: 'Mark', value: 28 },
     { id: 17, name: 'John', value: 25 },
   ];
-  trapezeEmployees$ = new BehaviorSubject<any>(this.trapezeEmployees);
+  private trapezeEmployeesBS$ = new BehaviorSubject<Employee[]>(
+    this.trapezeEmployees
+  );
+  trapezeEmployees$ = this.trapezeEmployeesBS$.asObservable().pipe(delay(2000));
 
   constructor() {}
 
   addDramsEmployee(employee: Employee) {
     employee.id = this.dramsEmployees.length;
     this.dramsEmployees = [employee, ...this.dramsEmployees];
-    this.dramsEmployees$.next(this.dramsEmployees);
+    this.dramsEmployeesBS$.next(this.dramsEmployees);
   }
 
   addTrapezeEmployee(employee: Employee) {
     employee.id = this.trapezeEmployees.length;
     this.trapezeEmployees = [employee, ...this.trapezeEmployees];
-    this.trapezeEmployees$.next(this.trapezeEmployees);
+    this.trapezeEmployeesBS$.next(this.trapezeEmployees);
   }
 }
 

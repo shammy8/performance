@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { FormsModule } from '@angular/forms';
+import { HoverPreloadModule } from 'ngx-hover-preload';
 
 const routes: Routes = [{ path: '', component: EmployeeListsComponent }];
 
@@ -23,6 +24,7 @@ const routes: Routes = [{ path: '', component: EmployeeListsComponent }];
     MatButtonModule,
     FormsModule,
     MatDividerModule,
+    HoverPreloadModule,
   ],
 })
 export class EmployeeListsModule {}

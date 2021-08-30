@@ -39,9 +39,13 @@ import { Employee } from '../employee.service';
       Add
     </button>
 
-    <div *ngFor="let employee of employees">
-      {{ employee.name }}. {{ employee.value }} =>
-      {{ calculate(employee.value, employee.name) }}
+    <div *ngFor="let employee of employees" class="employee-list">
+      <div>{{ employee.name }}.</div>
+      <div>{{ employee.value }}</div>
+      <div>=></div>
+      <div>
+        {{ calculate(employee.value, employee.name) }}
+      </div>
     </div>
   `,
   styles: [
@@ -51,6 +55,11 @@ import { Employee } from '../employee.service';
       }
       .mat-form-field {
         margin-right: 5px;
+      }
+      .employee-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 30px;
       }
     `,
   ],

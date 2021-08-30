@@ -1,4 +1,9 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Employee, EmployeeService } from '../employee.service';
@@ -28,6 +33,7 @@ import { Employee, EmployeeService } from '../employee.service';
       }
     `,
   ],
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeListsComponent implements OnInit, OnDestroy {
   dramsEmployees: Employee[] = [];

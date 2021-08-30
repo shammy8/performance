@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { Employee } from '../employee.service';
 
 @Component({
@@ -33,7 +40,7 @@ import { Employee } from '../employee.service';
     </button>
     <div *ngFor="let employee of employees">
       {{ employee.name }}. {{ employee.value }} =>
-      {{ calculate(employee.value) }}
+      {{ calculate(employee.value, employee.name) }}
     </div>
   `,
   styles: [
@@ -46,6 +53,7 @@ import { Employee } from '../employee.service';
       }
     `,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeListComponent implements OnInit {
   valueOptions = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
@@ -63,8 +71,14 @@ export class EmployeeListComponent implements OnInit {
     console.log('hi');
   }
 
-  calculate(value: number) {
-    console.log('calculating for value:', value);
+  calculate(value: number, name: string) {
+    console.log(
+      this.listName,
+      'calculating for',
+      name,
+      'with a value of',
+      value
+    );
     return fibonacci(value);
   }
 }

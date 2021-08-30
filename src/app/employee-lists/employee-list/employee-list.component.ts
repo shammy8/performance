@@ -63,7 +63,7 @@ import { Employee } from '../employee.service';
       }
     `,
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeListComponent implements OnInit {
   valueOptions = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];

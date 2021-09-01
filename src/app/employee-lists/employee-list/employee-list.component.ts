@@ -3,7 +3,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  OnInit,
   Output,
 } from '@angular/core';
 import { Employee } from '../employee.service';
@@ -39,7 +38,10 @@ import { Employee } from '../employee.service';
       Add
     </button>
 
-    <div *ngFor="let employee of employees" class="employee-list">
+    <div
+      *ngFor="let employee of employees; trackBy: trackByFunction"
+      class="employee-list"
+    >
       <div [appTooltip]="employee.id">{{ employee.name }}.</div>
       <div>{{ employee.value }}</div>
       <div>=></div>
@@ -65,9 +67,9 @@ import { Employee } from '../employee.service';
   ],
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EmployeeListComponent implements OnInit {
+export class EmployeeListComponent {
   valueOptions = [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
-  selectedValue = 15;
+  selectedValue = 20;
   selectedName = '';
 
   @Input() listName = '';
@@ -77,19 +79,13 @@ export class EmployeeListComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    console.log('hi');
+  calculate(value: number, name: string) {
+    console.log('Calculating:', this.listName, name, value);
+    return fibonacci(value);
   }
 
-  calculate(value: number, name: string) {
-    console.log(
-      this.listName,
-      'calculating for',
-      name,
-      'with a value of',
-      value
-    );
-    return fibonacci(value);
+  trackByFunction(index: number, employee: Employee) {
+    return employee.id;
   }
 }
 

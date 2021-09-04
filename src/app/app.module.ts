@@ -16,6 +16,13 @@ import { HoverPreloadModule, HoverPreloadStrategy } from 'ngx-hover-preload';
 
 const routes: Routes = [
   {
+    path: 'change-detection',
+    loadChildren: () =>
+      import('./change-detection/change-detection.module').then(
+        (m) => m.ChangeDetectionModule
+      ),
+  },
+  {
     path: 'employee-lists',
     loadChildren: () =>
       import('./employee-lists/employee-lists.module').then(

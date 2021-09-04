@@ -4,16 +4,13 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <mat-toolbar>
-      <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <h1>Angular Performance Optimisation</h1>
+      <a mat-button routerLink="/"><h1>Performance Optimisation</h1></a>
+      <span style="flex:1 1 auto"></span>
+      <a mat-button routerLink="/employee-lists">Employee Lists</a>
+      <a mat-button routerLink="/test">Test</a>
       <!-- <nav><a>Employee</a></nav> -->
     </mat-toolbar>
-    <mat-menu #menu="matMenu">
-      <a mat-menu-item routerLink="/employee-lists">Employee Lists</a>
-      <a mat-menu-item routerLink="/test">Test</a>
-    </mat-menu>
+
     <router-outlet></router-outlet>
   `,
   styles: [],

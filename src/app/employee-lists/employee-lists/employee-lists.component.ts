@@ -9,7 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Employee, EmployeeService } from '../employee.service';
 
 @Component({
-  selector: 'app-employee-lists',
+  selector: 'app-all-employee-lists',
   template: `
     <app-employee-list
       listName="Drams"
@@ -35,7 +35,7 @@ import { Employee, EmployeeService } from '../employee.service';
   ],
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EmployeeListsComponent implements OnInit, OnDestroy {
+export class AllEmployeeListsComponent implements OnInit, OnDestroy {
   dramsEmployees: Employee[] = [];
   trapezeEmployees: Employee[] = [];
 

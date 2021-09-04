@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EmployeeListsComponent } from './employee-lists/employee-lists.component';
+import { AllEmployeeListsComponent } from './employee-lists/employee-lists.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,11 +12,11 @@ import { FormsModule } from '@angular/forms';
 import { HoverPreloadModule } from 'ngx-hover-preload';
 import { TooltipDirective } from '../tooltip.directive';
 
-const routes: Routes = [{ path: '', component: EmployeeListsComponent }];
+const routes: Routes = [{ path: '', component: AllEmployeeListsComponent }];
 
 @NgModule({
   declarations: [
-    EmployeeListsComponent,
+    AllEmployeeListsComponent,
     EmployeeListComponent,
     TooltipDirective,
   ],

@@ -19,14 +19,19 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
       }
     `,
   ],
-  template: ` <p>Parent {{ data | json }}</p>
+  template: ` <p>Parent - {{ data | json }}</p>
     <button mat-raised-button color="primary" (click)="changeMutably()">
       Change Mutably
     </button>
     <button mat-raised-button color="primary" (click)="changeImmutably()">
       Change Immutably
     </button>
+    <button mat-raised-button color="primary" (click)="doNothing()">
+      Do Nothing
+    </button>
+
     {{ getter }}
+
     <div style="display: flex; justify-content: space-between; ">
       <app-child name="1" [data]="data"></app-child>
       <app-child name="2" [data]="data"></app-child>
@@ -43,6 +48,7 @@ export class ParentComponent implements OnInit {
 
   constructor() {}
 
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {}
 
   changeMutably() {
@@ -54,12 +60,12 @@ export class ParentComponent implements OnInit {
   }
 
   changeImmutably() {
-    // setTimeout(() => {
     if (this.data.title === 'lower') {
       this.data = { title: 'UPPER', subtitle: 'case' };
     } else {
       this.data = { title: 'lower', subtitle: 'case' };
     }
-    // });
   }
+
+  doNothing() {}
 }

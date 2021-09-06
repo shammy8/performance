@@ -19,16 +19,18 @@ import {
     `,
   ],
   template: `
-    <p>Child {{ name }} {{ data | json }}</p>
+    <p>Child {{ name }} - {{ data | json }}</p>
     <p>{{ number }}</p>
-    <p>{{ getter }}</p>
     <button mat-raised-button color="primary" (click)="doNothing()">
-      Click
+      Do Nothing
     </button>
-    <div style="display: flex; justify-content: space-between; ">
+
+    <p>{{ getter }}</p>
+
+    <!-- <div style="display: flex; justify-content: space-between; ">
       <app-grandchild name="1" [data]="data"></app-grandchild>
       <app-grandchild name="2" [data]="data"></app-grandchild>
-    </div>
+    </div> -->
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -45,10 +47,11 @@ export class ChildComponent implements OnInit {
 
   constructor() {}
 
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {
-    setInterval(() => {
-      this.number = this.number + 1;
-    }, 1000);
+    // setInterval(() => {
+    //   this.number = this.number + 1;
+    // }, 1000);
   }
 
   doNothing() {}

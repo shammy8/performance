@@ -18,4 +18,9 @@ export class LoggingService {
     this.logsBS.next(this.logs);
     this.count++;
   }
+
+  clear() {
+    this.logs = [];
+    this.logsBS.next(this.logs);
+  }
 }

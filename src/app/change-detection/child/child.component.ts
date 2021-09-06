@@ -4,6 +4,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-child',
@@ -36,16 +37,19 @@ import {
 })
 export class ChildComponent implements OnInit {
   number = 0;
+  count = 0;
 
   @Input() data: any;
   @Input() name?: string;
 
   get getter() {
     console.log('change detection ran for child', this.name);
+    this.count++;
+    this.loggingService.add(`Child ${this.name}. Ran ${this.count} times`);
     return '';
   }
 
-  constructor() {}
+  constructor(private loggingService: LoggingService) {}
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {

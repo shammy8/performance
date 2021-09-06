@@ -4,6 +4,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-grandchild',
@@ -26,15 +27,19 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GrandchildComponent implements OnInit {
+  count = 0;
+
   @Input() data: any;
   @Input() name?: string;
 
   get getter() {
     console.log('change detection ran for grandchild', this.name);
+    this.count++;
+    this.loggingService.add(`Grandchild ${this.name}. Ran ${this.count} times`);
     return '';
   }
 
-  constructor() {}
+  constructor(private loggingService: LoggingService) {}
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {}

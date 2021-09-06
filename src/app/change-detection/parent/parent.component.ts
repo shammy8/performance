@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-parent',
@@ -19,7 +20,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
       }
     `,
   ],
-  template: ` <p>Parent - {{ data | json }}</p>
+  template: `
+    <p>Parent - {{ data | json }}</p>
     <button mat-raised-button color="primary" (click)="changeMutably()">
       Change Mutably
     </button>
@@ -35,18 +37,22 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
     <div style="display: flex; justify-content: space-between; ">
       <app-child name="1" [data]="data"></app-child>
       <app-child name="2" [data]="data"></app-child>
-    </div>`,
+    </div>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ParentComponent implements OnInit {
   data = { title: 'lower', subtitle: 'case' };
+  count = 0;
 
   get getter() {
     console.log('change detection ran for parent');
+    this.count++;
+    this.loggingService.add(`Parent. Ran ${this.count} times`);
     return '';
   }
 
-  constructor() {}
+  constructor(private loggingService: LoggingService) {}
 
   // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngOnInit(): void {}

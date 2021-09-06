@@ -5,11 +5,19 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { GrandchildComponent } from './grandchild/grandchild.component';
 import { MatButtonModule } from '@angular/material/button';
+import { LoggingComponent } from './logging/logging.component';
+import { ChangeDetectionComponent } from './change-detection/change-detection.component';
 
-const routes: Routes = [{ path: '', component: ParentComponent }];
+const routes: Routes = [{ path: '', component: ChangeDetectionComponent }];
 
 @NgModule({
-  declarations: [ParentComponent, ChildComponent, GrandchildComponent],
+  declarations: [
+    ParentComponent,
+    ChildComponent,
+    GrandchildComponent,
+    LoggingComponent,
+    ChangeDetectionComponent,
+  ],
   imports: [CommonModule, RouterModule.forChild(routes), MatButtonModule],
 })
 export class ChangeDetectionModule {}

@@ -10,6 +10,7 @@ import { Employee, EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-all-employee-lists',
+  styleUrls: ['./employee-lists.component.css'],
   template: `
     <app-employee-list
       listName="Drams"
@@ -25,14 +26,6 @@ import { Employee, EmployeeService } from '../employee.service';
       (addEmployee)="employeeService.addTrapezeEmployee($event)"
     ></app-employee-list>
   `,
-  styles: [
-    `
-      :host {
-        display: flex;
-        justify-content: space-around;
-      }
-    `,
-  ],
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AllEmployeeListsComponent implements OnInit, OnDestroy {

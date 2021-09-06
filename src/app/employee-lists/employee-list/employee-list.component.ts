@@ -9,6 +9,7 @@ import { Employee } from '../employee.service';
 
 @Component({
   selector: 'app-employee-list',
+  styleUrls: ['./employee-list.component.css'],
   template: `
     <h3>{{ listName }}</h3>
 
@@ -47,21 +48,6 @@ import { Employee } from '../employee.service';
       </div>
     </div>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .mat-form-field {
-        margin-right: 5px;
-      }
-      .employee-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 30px;
-      }
-    `,
-  ],
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmployeeListComponent {

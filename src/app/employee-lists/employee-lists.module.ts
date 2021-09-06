@@ -11,6 +11,7 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { FormsModule } from '@angular/forms';
 import { HoverPreloadModule } from 'ngx-hover-preload';
 import { TooltipDirective } from '../tooltip.directive';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 const routes: Routes = [{ path: '', component: AllEmployeeListsComponent }];
 
@@ -30,6 +31,7 @@ const routes: Routes = [{ path: '', component: AllEmployeeListsComponent }];
     FormsModule,
     MatDividerModule,
     HoverPreloadModule,
+    ScrollingModule,
   ],
 })
 export class EmployeeListsModule {}

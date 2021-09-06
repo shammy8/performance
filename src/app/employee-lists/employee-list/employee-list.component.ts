@@ -39,6 +39,7 @@ import { Employee } from '../employee.service';
       Add
     </button>
 
+    <!-- <cdk-virtual-scroll-viewport itemSize="30" style="height: 500px"> -->
     <div *ngFor="let employee of employees" class="employee-list">
       <div [appTooltip]="employee.id">{{ employee.name }}.</div>
       <div>{{ employee.value }}</div>
@@ -47,6 +48,7 @@ import { Employee } from '../employee.service';
         {{ calculate(employee.value, employee.name) }}
       </div>
     </div>
+    <!-- </cdk-virtual-scroll-viewport> -->
   `,
   // changeDetection: ChangeDetectionStrategy.OnPush,
 })

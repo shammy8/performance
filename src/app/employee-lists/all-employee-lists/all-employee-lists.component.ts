@@ -10,7 +10,7 @@ import { Employee, EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-all-employee-lists',
-  styleUrls: ['./employee-lists.component.css'],
+  styleUrls: ['./all-employee-lists.component.css'],
   template: `
     <app-employee-list
       listName="Drams"

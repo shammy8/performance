@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AllEmployeeListsComponent } from './employee-lists/employee-lists.component';
+import { AllEmployeeListsComponent } from './all-employee-lists/all-employee-lists.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';

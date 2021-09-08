@@ -10,7 +10,9 @@ export class TooltipDirective implements OnInit {
   constructor(private el: ElementRef, private ngZone: NgZone) {}
 
   ngOnInit() {
-    this.setupTooltip();
+    this.ngZone.runOutsideAngular(() => {
+      this.setupTooltip();
+    });
   }
 
   private setupTooltip() {

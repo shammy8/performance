@@ -1,5 +1,6 @@
 :host {
   display: block;
+  padding: 5px;
 }
 .mat-form-field {
   margin-right: 5px;

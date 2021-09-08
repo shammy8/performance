@@ -9,4 +9,5 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   background: #303030;
   color: white;
+  min-width: 620px;
 }

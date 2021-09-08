@@ -40,7 +40,10 @@ import { Employee } from '../employee.service';
     </button>
 
     <!-- <cdk-virtual-scroll-viewport itemSize="30" style="height: 500px"> -->
-    <div *ngFor="let employee of employees" class="employee-list">
+    <div
+      *ngFor="let employee of employees; trackBy: trackByFunction"
+      class="employee-list"
+    >
       <div [appTooltip]="employee.id">{{ employee.name }}.</div>
       <div>{{ employee.value }}</div>
       <div>=></div>

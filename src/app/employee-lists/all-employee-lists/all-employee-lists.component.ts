@@ -1,11 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Employee, EmployeeService } from '../employee.service';
 
 @Component({
@@ -14,7 +8,7 @@ import { Employee, EmployeeService } from '../employee.service';
   template: `
     <app-employee-list
       listName="Drams"
-      [employees]="dramsEmployees"
+      [employees]="dramsEmployees$ | async"
       (addEmployee)="employeeService.addDramsEmployee($event)"
     ></app-employee-list>
 
@@ -22,35 +16,18 @@ import { Employee, EmployeeService } from '../employee.service';
 
     <app-employee-list
       listName="Trapeze"
-      [employees]="trapezeEmployees"
+      [employees]="trapezeEmployees$ | async"
       (addEmployee)="employeeService.addTrapezeEmployee($event)"
     ></app-employee-list>
   `,
-  // changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AllEmployeeListsComponent implements OnInit, OnDestroy {
-  dramsEmployees: Employee[] = [];
-  trapezeEmployees: Employee[] = [];
+export class AllEmployeeListsComponent {
+  dramsEmployees$: Observable<Employee[]> =
+    this.employeeService.dramsEmployees$;
 
-  destroy$ = new Subject<void>();
+  trapezeEmployees$: Observable<Employee[]> =
+    this.employeeService.trapezeEmployees$;
 
   constructor(public employeeService: EmployeeService) {}
-
-  ngOnInit(): void {
-    this.employeeService.dramsEmployees$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((employees) => {
-        this.dramsEmployees = employees;
-      });
-
-    this.employeeService.trapezeEmployees$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((employees) => {
-        this.trapezeEmployees = employees;
-      });
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next();
-  }
 }

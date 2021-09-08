@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HoverPreloadModule } from 'ngx-hover-preload';
 import { TooltipDirective } from '../tooltip.directive';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CalculatePipe } from '../calculate.pipe';
 
 const routes: Routes = [{ path: '', component: AllEmployeeListsComponent }];
 
@@ -20,6 +21,7 @@ const routes: Routes = [{ path: '', component: AllEmployeeListsComponent }];
     AllEmployeeListsComponent,
     EmployeeListComponent,
     TooltipDirective,
+    CalculatePipe,
   ],
   imports: [
     CommonModule,

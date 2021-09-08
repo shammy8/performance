@@ -45,7 +45,7 @@ import { Employee } from '../employee.service';
       <div>{{ employee.value }}</div>
       <div>=></div>
       <div>
-        {{ calculate(employee.value, employee.name) }}
+        {{ employee.value | calculate: listName:employee.name }}
       </div>
     </div>
     <!-- </cdk-virtual-scroll-viewport> -->
@@ -64,18 +64,7 @@ export class EmployeeListComponent {
 
   constructor() {}
 
-  calculate(value: number, name: string) {
-    console.log('Calculating:', this.listName, name, value);
-    return fibonacci(value);
-  }
-
   trackByFunction(index: number, employee: Employee) {
     return employee.id;
   }
-}
-
-function fibonacci(value: number): number {
-  if (value <= 1) return 1;
-  if (value === 2) return 1;
-  return fibonacci(value - 1) + fibonacci(value - 2);
 }
